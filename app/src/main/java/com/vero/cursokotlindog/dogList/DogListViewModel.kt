@@ -7,12 +7,12 @@ import androidx.lifecycle.viewModelScope
 import com.vero.cursokotlindog.Dog
 import com.vero.cursokotlindog.api.ApiResponseStatus
 import kotlinx.coroutines.launch
-import java.lang.Exception
 
-class DogListViewModel: ViewModel() {
+class DogListViewModel : ViewModel() {
     //LIVEDATA
     //Editar
     private val _dogList = MutableLiveData<List<Dog>>()
+
     //Para evitar que sea editable de clases que vienen de fuera - livedata
     val dogList: LiveData<List<Dog>>
         get() = _dogList
@@ -29,14 +29,16 @@ class DogListViewModel: ViewModel() {
 
     private fun downloadDogs() {
         //Ejecuta corrutina
-        viewModelScope.launch{
-            _status.value = ApiResponseStatus.LOADING
-            try {
-                _dogList.value = dogRepository.downloadDogs()
-                _status.value = ApiResponseStatus.SUCCESS
-            } catch (e: Exception){
-                _status.value = ApiResponseStatus.ERROR
-            }
+        viewModelScope.launch {
+            _status.value = ApiResponseStatus.Loading()
+            handleResponseStatus(dogRepository.downloadDogs())
         }
+    }
+
+    private fun handleResponseStatus(apiResponseStatus: ApiResponseStatus) {
+        if (apiResponseStatus is ApiResponseStatus.Success){
+            _dogList.value = apiResponseStatus.dogList
+        }
+        _status.value = apiResponseStatus
     }
 }

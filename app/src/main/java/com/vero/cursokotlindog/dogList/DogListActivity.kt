@@ -39,28 +39,18 @@ class DogListActivity : AppCompatActivity() {
         recycler.adapter = adapter
 
         //crear observer
-        dogListViewModel.dogList.observe(this){
-            dogList->
+        dogListViewModel.dogList.observe(this) { dogList ->
             adapter.submitList(dogList)
         }
         //Observe de status
-        dogListViewModel.status.observe(this){
-            status ->
-            when(status){
-                ApiResponseStatus.LOADING-> {
-                    loadingWheel.visibility = View.VISIBLE
-                }
-                ApiResponseStatus.ERROR -> {
+        dogListViewModel.status.observe(this) { status ->
+            when (status) {
+                is ApiResponseStatus.Error -> {
                     loadingWheel.visibility = View.GONE
-                    Toast.makeText(this, "Error to show data", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, status.messageId, Toast.LENGTH_SHORT).show()
                 }
-                ApiResponseStatus.SUCCESS-> {
-                    loadingWheel.visibility = View.GONE
-                }
-                else -> {
-                    loadingWheel.visibility = View.GONE 
-                    Toast.makeText(this, "Error unknown", Toast.LENGTH_SHORT).show()
-                }
+                is ApiResponseStatus.Loading -> loadingWheel.visibility = View.VISIBLE
+                is ApiResponseStatus.Success -> loadingWheel.visibility = View.GONE
             }
         }
     }
