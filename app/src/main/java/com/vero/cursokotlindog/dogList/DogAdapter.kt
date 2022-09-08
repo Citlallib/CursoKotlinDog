@@ -20,6 +20,12 @@ class DogAdapter: ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallback) {
         }
 
     }
+    //Lambda que se le pasa un perro que se le sa click
+    private var onItemClickListener: ((Dog) -> Unit)? = null
+    //método que recibe lambda
+    fun setOnItemClickListener(onItemClickListener: (Dog) -> Unit){
+        this.onItemClickListener = onItemClickListener
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DogViewHolder {
         val binding = DogListItemBinding
@@ -36,7 +42,11 @@ class DogAdapter: ListAdapter<Dog, DogAdapter.DogViewHolder>(DiffCallback) {
         RecyclerView.ViewHolder(binding.root){
         fun bind (dog: Dog){
             binding.dogName.text = dog.name
-
+            //Cuando se clickee el dogname
+            binding.dogName.setOnClickListener {
+                //Si no es null se va a invocar
+                onItemClickListener?.invoke(dog)
+            }
         }
     }
 }

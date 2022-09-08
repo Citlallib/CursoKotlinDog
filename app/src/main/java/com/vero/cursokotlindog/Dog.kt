@@ -1,8 +1,10 @@
 package com.vero.cursokotlindog
 
-import com.squareup.moshi.Json
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
 //Requerimiento para DiffCallback
+@Parcelize
 data class Dog(
     val id:            Long,
     val index:         Int,
@@ -15,4 +17,4 @@ data class Dog(
     val temperament:   String,
     val weightFemale:  String,
     val weightMale:    String
-)
+) : Parcelable

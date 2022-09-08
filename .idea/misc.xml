@@ -12,6 +12,8 @@
         <entry key="app/src/main/res/drawable/progressbar_background.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/red_circle.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dog_detail.xml" value="0.1358695652173913" />
+        <entry key="app/src/main/res/layout/activity_dog_list.xml" value="0.13171225937183384" />
+        <entry key="app/src/main/res/layout/dog_list_item.xml" value="0.13171225937183384" />
       </map>
     </option>
   </component>

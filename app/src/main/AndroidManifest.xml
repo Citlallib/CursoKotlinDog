@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CursoKotlinDog">
         <activity
-            android:name=".DogDetailActivity"
+            android:name=".dogDetail.DogDetailActivity"
             android:exported="false" />
         <activity
             android:name=".dogList.DogListActivity"
