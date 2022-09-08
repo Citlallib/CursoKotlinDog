@@ -3,10 +3,13 @@ package com.vero.cursokotlindog.dogList
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vero.cursokotlindog.Dog
 import com.vero.cursokotlindog.R
+import com.vero.cursokotlindog.api.ApiResponseStatus
 import com.vero.cursokotlindog.databinding.ActivityDogListBinding
 import com.vero.cursokotlindog.dogDetail.DogDetailActivity
 import com.vero.cursokotlindog.dogDetail.DogDetailActivity.Companion.DOG_KEY
@@ -19,6 +22,8 @@ class DogListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         val binding = ActivityDogListBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val loadingWheel = binding.loadingWheel
 
         val recycler = binding.dogRecycler
         recycler.layoutManager = LinearLayoutManager(this)
@@ -37,6 +42,26 @@ class DogListActivity : AppCompatActivity() {
         dogListViewModel.dogList.observe(this){
             dogList->
             adapter.submitList(dogList)
+        }
+        //Observe de status
+        dogListViewModel.status.observe(this){
+            status ->
+            when(status){
+                ApiResponseStatus.LOADING-> {
+                    loadingWheel.visibility = View.VISIBLE
+                }
+                ApiResponseStatus.ERROR -> {
+                    loadingWheel.visibility = View.GONE
+                    Toast.makeText(this, "Error to show data", Toast.LENGTH_SHORT).show()
+                }
+                ApiResponseStatus.SUCCESS-> {
+                    loadingWheel.visibility = View.GONE
+                }
+                else -> {
+                    loadingWheel.visibility = View.GONE 
+                    Toast.makeText(this, "Error unknown", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
     }
 }
