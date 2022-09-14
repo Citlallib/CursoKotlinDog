@@ -11,7 +11,8 @@ import java.lang.Exception
 import java.net.UnknownHostException
 
 class DogRepository {
-    suspend fun downloadDogs(): ApiResponseStatus{
+    //Usa el ApiResponseStatus <con el tipo de dato que se quiere obtener>
+    suspend fun downloadDogs(): ApiResponseStatus<List<Dog>>{
         //Dispatchers en que se va a utilizar una corruitina
         //IO descargar de Internet - tomar de la BD
         //MAIN se usa en el hilo principal
