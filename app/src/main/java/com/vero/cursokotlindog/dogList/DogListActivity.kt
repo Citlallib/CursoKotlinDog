@@ -6,14 +6,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.vero.cursokotlindog.Dog
-import com.vero.cursokotlindog.R
+import androidx.recyclerview.widget.GridLayoutManager
 import com.vero.cursokotlindog.api.ApiResponseStatus
 import com.vero.cursokotlindog.databinding.ActivityDogListBinding
 import com.vero.cursokotlindog.dogDetail.DogDetailActivity
 import com.vero.cursokotlindog.dogDetail.DogDetailActivity.Companion.DOG_KEY
-
+private const val GRID_SPAN_COUNT = 3
 class DogListActivity : AppCompatActivity() {
     //Instancia del ViewModel
     private val dogListViewModel: DogListViewModel by viewModels()
@@ -26,7 +24,7 @@ class DogListActivity : AppCompatActivity() {
         val loadingWheel = binding.loadingWheel
 
         val recycler = binding.dogRecycler
-        recycler.layoutManager = LinearLayoutManager(this)
+        recycler.layoutManager = GridLayoutManager(this, GRID_SPAN_COUNT)
 
         val adapter = DogAdapter()
 
