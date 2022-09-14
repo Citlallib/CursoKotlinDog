@@ -1,4 +1,4 @@
-package com.vero.cursokotlindog.response
+package com.vero.cursokotlindog.api.response
 
 import com.squareup.moshi.Json
 
