@@ -3,6 +3,7 @@ package com.vero.cursokotlindog.dogDetail
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import coil.load
 import com.vero.cursokotlindog.Dog
 import com.vero.cursokotlindog.R
 import com.vero.cursokotlindog.databinding.ActivityDogDetailBinding
@@ -29,5 +30,9 @@ class DogDetailActivity : AppCompatActivity() {
         binding.dogIndex.text = getString(R.string.dog_index_format, dog.index)
         binding.lifeExpectancy.text = getString(R.string.dog_life_expectancy_format, dog.lifeExpectancy)
         binding.dog = dog
+        binding.dogImage.load(dog.imageUrl)
+        binding.closeButton.setOnClickListener{
+            finish()
+        }
     }
 }
