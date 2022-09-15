@@ -13,7 +13,10 @@
         <entry key="app/src/main/res/drawable/red_circle.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_dog_detail.xml" value="0.1358695652173913" />
         <entry key="app/src/main/res/layout/activity_dog_list.xml" value="0.13171225937183384" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.21822916666666667" />
         <entry key="app/src/main/res/layout/dog_list_item.xml" value="0.13171225937183384" />
+        <entry key="app/src/main/res/layout/fragment_login.xml" value="0.27385559082031247" />
+        <entry key="app/src/main/res/layout/fragment_sign_up.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
