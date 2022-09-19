@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.vero.cursokotlindog.Dog
+import com.vero.cursokotlindog.model.Dog
 import com.vero.cursokotlindog.api.ApiResponseStatus
 import kotlinx.coroutines.launch
 

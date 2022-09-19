@@ -1,4 +1,4 @@
-package com.vero.cursokotlindog
+package com.vero.cursokotlindog.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

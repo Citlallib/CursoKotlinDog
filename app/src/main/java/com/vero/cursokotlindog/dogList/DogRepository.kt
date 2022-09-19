@@ -1,6 +1,6 @@
 package com.vero.cursokotlindog.dogList
 
-import com.vero.cursokotlindog.Dog
+import com.vero.cursokotlindog.model.Dog
 import com.vero.cursokotlindog.api.ApiResponseStatus
 import com.vero.cursokotlindog.api.DogsApi.retrofitService
 import com.vero.cursokotlindog.api.dto.DogDTOMapper

@@ -1,9 +1,9 @@
 package com.vero.cursokotlindog.api.dto
 
-import com.vero.cursokotlindog.Dog
+import com.vero.cursokotlindog.model.Dog
 
 class DogDTOMapper {
-    private fun fromDogDTOToDogDomain(dogDTO: DogDTO): Dog{
+    private fun fromDogDTOToDogDomain(dogDTO: DogDTO): Dog {
         return Dog(
             dogDTO.id,
             dogDTO.index,

@@ -6,7 +6,7 @@
 
         <variable
             name="dog"
-            type="com.vero.cursokotlindog.Dog" />
+            type="com.vero.cursokotlindog.model.Dog" />
     </data>
 
     <FrameLayout

@@ -4,10 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import coil.load
-import com.vero.cursokotlindog.Dog
+import com.vero.cursokotlindog.model.Dog
 import com.vero.cursokotlindog.R
 import com.vero.cursokotlindog.databinding.ActivityDogDetailBinding
-import com.vero.cursokotlindog.databinding.ActivityDogListBinding
 
 class DogDetailActivity : AppCompatActivity() {
     companion object{
