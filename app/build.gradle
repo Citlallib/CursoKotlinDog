@@ -48,6 +48,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
     //Tomar el view model - Instanciar
     implementation 'androidx.activity:activity-ktx:1.5.1'
+    implementation "androidx.fragment:fragment-ktx:1.5.2"
     //Retrofit y moshi
     //Descargar
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
